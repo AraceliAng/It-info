@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import {StyleSheet, StatusBar} from 'react-native'
 import { Container, Header, Content, Footer, FooterTab, Button, Icon, Text, Body,Title } from 'native-base';
 import Perfil from './Perfil';
+import {Actions} from 'react-native-router-flux';
+
+
 export default class FooterTabsIconTextExample extends Component {
   render() {
     return (
@@ -18,7 +21,7 @@ export default class FooterTabsIconTextExample extends Component {
         <Perfil />
         <Footer >
           <FooterTab style={styles.colorH} >
-            <Button vertical>
+            <Button vertical onPress={() => Actions.News()}>
               <Icon name="apps" style={styles.texto} />
               <Text style={styles.texto}>News</Text>
             </Button>
@@ -26,7 +29,7 @@ export default class FooterTabsIconTextExample extends Component {
               <Icon name="camera" style={styles.texto} />
               <Text style={styles.texto}>QR</Text>
             </Button>
-            <Button vertical>
+            <Button vertical onPress={() => Actions.Mapa()}>
               <Icon active name="navigate" style={styles.texto} />
               <Text style={styles.texto}>Map</Text>
             </Button>

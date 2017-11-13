@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image, StatusBar} from 'react-native';
 import Video from 'react-native-video';
 import {Button} from 'native-base';
-//import {Actions} from 'react-native-router-flux';
+import {Actions} from 'react-native-router-flux';
 import video from '../../assets/video/mv.mp4';
 
 class Bienvenida extends Component {
@@ -25,7 +25,7 @@ class Bienvenida extends Component {
         <View style={styles.content}>
 
           <Text style={styles.text}>"Esto sera una leyenda"</Text>
-          <Button rounded block style={styles.buttonIngreso}>
+          <Button rounded block style={styles.buttonIngreso} onPress={() => Actions.Login()}>
             <Text style={styles.boton}>EMPECEMOS</Text>
           </Button>
         </View>

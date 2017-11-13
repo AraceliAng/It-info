@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, View, TextInput, TouchableOpacity, Text} from 'react-native';
 import { Container, Header, Content, Form, Item, Input, Label,Button } from 'native-base';
 import * as Animatable from 'react-native-animatable';
+import {Actions} from 'react-native-router-flux';
 
 export default class LoginForm extends Component{
   render(){
@@ -22,18 +23,18 @@ export default class LoginForm extends Component{
               secureTextEntry={true}
             />
           </Item>
-          <Button full rounded style={styles.buttonContainer}  >
+          <Button full rounded style={styles.buttonContainer} onPress={() => Actions.Mapa()} >
            <Text style={{color:'#FFFFFF'}}>Iniciar</Text>
          </Button>
          <View style={styles.hyper}>
-         <TouchableOpacity>
+         <TouchableOpacity onPress={() => Actions.Mapa()}>
            <Text style={styles.text}>Entrar como invitado</Text>
          </TouchableOpacity>
             <Animatable.Text animation="pulse" easing="ease-out" iterationCount="infinite"
-              >
+              onPress={() => Actions.Registro()}>
               <Text style={styles.text1}>Crear Cuenta</Text>
             </Animatable.Text>
-            <TouchableOpacity>
+            <TouchableOpacity >
               <Text style={styles.text}>¿Olvidaste tu Contraseña?</Text>
             </TouchableOpacity>
 

@@ -3,6 +3,7 @@ import {StyleSheet, View, Image,Text, StatusBar, KeyboardAvoidingView, Touchable
 import logo from '../../assets/img/logot.png';
 import LoginForm from './LoginForm';
 
+
 export default class Login extends Component{
   render(){
     return(

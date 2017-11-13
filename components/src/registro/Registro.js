@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Image,Text, StatusBar, KeyboardAvoidingView} from 'react-native';
 import {Content} from 'native-base'
-import logo from './components/assets/img/logot.png';
+import logo from '../../assets/img/logot.png';
 import RegForm from './RegForm';
 
 

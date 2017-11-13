@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {StyleSheet, StatusBar} from 'react-native'
 import { Container, Header, Content, Footer, FooterTab, Button, Icon, Text, Body,Title } from 'native-base';
-import News from './components/src/news/News';
+import News from './News';
+import {Actions} from 'react-native-router-flux';
+
 export default class FooterTabsIconTextExample extends Component {
   render() {
     return (
@@ -26,11 +28,11 @@ export default class FooterTabsIconTextExample extends Component {
               <Icon name="camera" style={styles.texto} />
               <Text style={styles.texto}>QR</Text>
             </Button>
-            <Button vertical>
+            <Button vertical onPress={() => Actions.Mapa()}>
               <Icon active name="navigate" style={styles.texto} />
               <Text style={styles.texto}>Map</Text>
             </Button>
-            <Button vertical>
+            <Button vertical onPress={() => Actions.Perfil()}>
               <Icon name="person" style={styles.texto} />
               <Text style={styles.texto}>Perfil</Text>
             </Button>
