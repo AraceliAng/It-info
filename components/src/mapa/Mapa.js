@@ -19,23 +19,6 @@ export default class Mapa extends Component{
     }
   }
 
-  callDelta(lat,lon,accuracy){
-    const oneDegreeOfLongitudInMeter = 111.32;
-    const circumference = (40075/360)
-
-    const latDelta = accuracy*(1/(Math.cos(lat)* circumference))
-    const lonDelta = (accuracy/oneDegreeOfLongitudInMeter)
-
-    this.setState({
-      region:{
-        latitude:lat,
-        longitude:lon,
-        latitudeDelta:latDelta,
-        longitudeDelta:lonDelta
-      }
-    })
-  }
-
   componentWillMount(){
     navigator.geolocation.getCurrentPosition(
       (position)=>{

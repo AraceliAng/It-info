@@ -1,43 +1,57 @@
 import React, {Component} from 'react';
-import {Root} from 'native-base';
-import {Router, Scene} from 'react-native-router-flux';
-import Bienvenida from '../Bienvenida/Bienvenida';
-import Terminos from '../Terminos/Terminos';
-import Term from '../Terminos/TermyCond';
-import Aviso from '../Terminos/Avisos';
-import Login from '../Login/Login';
-import Log from '../Login/Log';
-import Inicio from '../Inicio/Inicio';
-import Registro from '../Login/Registro';
-import Recover from '../Login/Recover';
-// import Ingresos from '../Ingreso/Ingresos';
-// import Gastos from '../Gasto/Gastos';
-// import Ahorros from '../Ahorro/Ahorros';
-import Perfil from '../Perfil/Perfil';
-// import NuevoAhorro from '../Ahorro/NuevoAhorro';
-// import Tips from '../Tips/Tips';
-// import IngresosIntro from '../FinanzasEmpezar/IngresosIntro';
-// import GastosIntro from '../FinanzasEmpezar/GastosIntro';
-// import EditarAhorro from '../Ahorro/EditarAhorro';
-// import Depositar from '../Ahorro/Depositar';
+import {StyleSheet, View, Image,Text, StatusBar, KeyboardAvoidingView} from 'react-native';
+import {Content} from 'native-base'
+//import logo from '../../assets/img/logot.png';
+import logo from './components/assets/img/logot.png';
+import RecuperaForm from './RecuperaForm';
 
-const Routes = () => {
-  return (
-    <Root>
-    <Router>
-      <Scene key="root">
-        <Scene key="Bienvenida" header={null} component={Bienvenida}initial/>
-        <Scene key="Login" header={null} component={Terminos}/>
-        <Scene key="Reg" header={null} component={Term}/>
-        <Scene key="Mapa" header={null} component={Aviso} />
-        <Scene key="News" header={null} component={Login}/>
-        <Scene key="Perfil" header={null} component={Log} />
-        <Scene key="QR" header={null} component={Inicio} />
-        <Scene key="Recover" header={null} component={Recover}/>
 
-      </Scene>
-    </Router>
-    </Root>
-  );
+export default class Registro extends Component{
+  render(){
+    return(
+      <Content
+        style={styles.container}
+        behavior="padding"
+        >
+        <StatusBar
+          barStyle="light-content"
+        />
+
+        <View style={styles.logoContainer}>
+        <Text style={styles.title}>Recupera tu contraseña</Text>
+        <Image source={logo} style={styles.img}/>
+
+        </View>
+
+        <RecuperaForm/>
+
+      </Content>
+    );
+  }
 }
-export default Routes;
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    backgroundColor: '#d0eceb'
+
+  },
+  logoContainer:{
+    alignItems: 'center',
+    flexGrow:1,
+    justifyContent:'center'
+  },
+  img: {
+  height:130,
+  width: 100,
+  },
+  title:{
+    color: 'black',
+    fontSize:25,
+    marginTop:10,
+    width:160,
+    textAlign:'center',
+    opacity:0.9,
+
+  }
+});

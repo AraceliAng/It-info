@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
-import {StyleSheet, StatusBar} from 'react-native'
-import { Container, Header, Content, Footer, FooterTab, Button, Icon, Text, Body,Title } from 'native-base';
+import {StyleSheet, StatusBar,TouchableOpacity} from 'react-native'
+import { Container, Header, Content, Footer, FooterTab, Button, Icon, Text, Body,Title,Right,Toast } from 'native-base';
 import News from './News';
 import {Actions} from 'react-native-router-flux';
+import {firebaseAuth} from '../../firebase/Firebase';
 
 export default class FooterTabsIconTextExample extends Component {
+  constructor(props) {
+  super(props);
+  this.salir = this.salir.bind(this);
+}
+
+salir() {
+  firebaseAuth.signOut()
+  .then(r=>Toast.show({text: 'Adios \(^_^)/', position: 'bottom', duration: 3000, type: 'success'}))
+}
+
   render() {
     return (
       <Container>
@@ -12,6 +23,11 @@ export default class FooterTabsIconTextExample extends Component {
         <Body>
            <Title style={styles.texto}>Noticias</Title>
          </Body>
+         <Right>
+           <TouchableOpacity style={styles.touchMargin} onPress={this.salir.bind(this)}>
+            <Icon name='close' style={styles.icon3}/>
+           </TouchableOpacity>
+         </Right>
         </Header>
         <StatusBar
           backgroundColor="black"
@@ -48,8 +64,7 @@ const styles = StyleSheet.create({
     color:'black'
   },
   colorH:{
-
-    backgroundColor:'#DCFFD8'
+    backgroundColor: '#d0eceb'
 
   },
 

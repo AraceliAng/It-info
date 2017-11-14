@@ -3,9 +3,27 @@ import {StyleSheet, Text, View, Image, StatusBar} from 'react-native';
 import Video from 'react-native-video';
 import {Button} from 'native-base';
 import {Actions} from 'react-native-router-flux';
-import video from '../../assets/video/mv.mp4';
+import video from '../../assets/video/videotec.mp4';
 
 class Bienvenida extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      repeat: '',
+    };
+  }
+
+repetir=()=>{
+  this.setState({
+    repeat:true
+  })
+}
+
+componentWillMount(){
+  this.repetir()
+}
+
+
   render() {
     return (
       <View style={styles.container}>
@@ -18,7 +36,7 @@ class Bienvenida extends Component {
           rate={1.0}
           muted={true}
           resizeMode={"cover"}
-          repeat
+          repeat={this.state.repeat}
           style={styles.video}/>
         {/*Aqui acaba el video*/}
 
