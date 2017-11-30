@@ -94,7 +94,7 @@ export default class LoginForm extends Component{
 
 
          <View style={styles.hyper}>
-         <TouchableOpacity onPress={() => Actions.Mapa()}>
+         <TouchableOpacity onPress={() => Actions.MapaV()}>
            <Text style={styles.text}>Entrar como invitado</Text>
          </TouchableOpacity>
             <Animatable.Text animation="pulse" easing="ease-out" iterationCount="infinite"

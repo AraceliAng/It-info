@@ -1,57 +1,75 @@
-import React, {Component} from 'react';
-import {StyleSheet, View, Image,Text, StatusBar, KeyboardAvoidingView} from 'react-native';
-import {Content} from 'native-base'
-//import logo from '../../assets/img/logot.png';
-import logo from './components/assets/img/logot.png';
-import RecuperaForm from './RecuperaForm';
+import React, { Component } from 'react';
+import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
+import {Form, Label, List, ListItem, Container, Content, Text, Item, Input, Icon, Left} from 'native-base';
+import FootBotones from './components/src/barraNavegacion/FootBotones'
 
+export default class ListSeparatorExample extends Component {
+  render() {
+    return (
+      <Container>
 
-export default class Registro extends Component{
-  render(){
-    return(
-      <Content
-        style={styles.container}
-        behavior="padding"
-        >
-        <StatusBar
-          barStyle="light-content"
-        />
+        <Content>
+        <List>
+          <ListItem itemDivider>
+            <Text>Info</Text>
+          </ListItem>
 
-        <View style={styles.logoContainer}>
-        <Text style={styles.title}>Recupera tu contraseña</Text>
-        <Image source={logo} style={styles.img}/>
+          <ListItem last style={styles.tamaño} >
+          <Left>
+           <Text>Nombre</Text>
+         </Left>
+            <Input style={styles.texto} disabled placeholder='Dylan Torres'/>
+          </ListItem>
 
-        </View>
+          <ListItem last style={styles.tamaño}>
+           <Left>
+              <Text>correo</Text>
+           </Left>
+            <Input style={styles.texto} disabled placeholder='dylan@prueba.com'/>
+          </ListItem>
 
-        <RecuperaForm/>
+          <ListItem last style={styles.tamaño}>
+           <Left>
+              <Text>No control</Text>
+           </Left>
+            <Input style={styles.texto} disabled placeholder='14200197'/>
+          </ListItem>
 
-      </Content>
+          <ListItem last style={styles.tamaño}>
+           <Left>
+              <Text>Carrera</Text>
+           </Left>
+            <Input style={styles.texto} disabled placeholder='Tics'/>
+          </ListItem>
+          <ListItem last style={styles.tamaño}>
+           <Left>
+              <Text>Semestre</Text>
+           </Left>
+            <Input style={styles.texto} disabled placeholder='10°'/>
+          </ListItem>
+
+        </List>
+        </Content>
+        <FootBotones/>
+      </Container>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    backgroundColor: '#d0eceb'
-
-  },
-  logoContainer:{
-    alignItems: 'center',
-    flexGrow:1,
-    justifyContent:'center'
+  view: {
+    backgroundColor: 'rgb(0,0,0)',
+    opacity: 0.6
   },
   img: {
-  height:130,
-  width: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 180
   },
-  title:{
-    color: 'black',
-    fontSize:25,
-    marginTop:10,
-    width:160,
-    textAlign:'center',
-    opacity:0.9,
-
+  texto:{
+    textAlign:'right'
+  },
+  tamaño:{
+    height:50,
   }
-});
+})

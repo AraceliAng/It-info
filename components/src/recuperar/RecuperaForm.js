@@ -11,9 +11,7 @@ class Recover extends Component {
     error: '',
     loading: false
   };
-  atras() {
-    Actions.pop()
-  }
+
 /*
   constructor(props) {
     super(props);
@@ -76,7 +74,7 @@ class Recover extends Component {
         </Button>
 
         <View style={styles.footerStyle}>
-          <TouchableOpacity onClick={this.atras()}>
+          <TouchableOpacity onPress={Actions.push()} >
             <Text style={styles.ingresar}>¿Ya tienes cuenta?, INGRESA</Text>
           </TouchableOpacity>
         </View>
@@ -98,13 +96,6 @@ const styles = StyleSheet.create({
     marginLeft: 140,
     marginBottom: 10,
     backgroundColor: '#4DA49B'
-  },
-  img: {
-    justifyContent: 'space-around',
-    flex: 2,
-    height: null,
-    width: null,
-    opacity: 15
   },
   iconStyle: {
     fontSize: 100,

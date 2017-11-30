@@ -9,6 +9,8 @@ import Log from '../login/Log';
 import Registro from '../registro/Registro';
 import Recupera from '../recuperar/Recuperar';
 import Perfil from '../perfil/VistaPerfil';
+import MapaV from '../visitante/mapa/VistaMapaV'
+import Info from '../visitante/info/VistaInfo'
 
 
 const Routes = () => {
@@ -16,14 +18,17 @@ const Routes = () => {
     <Root>
     <Router>
       <Scene key="root">
-        <Scene key="Bienvenida" header={null} component={Bienvenida}initial/>
+        <Scene key="Bienvenida" header={null} component={Bienvenida}/>
         <Scene key="Login" header={null} component={Login}/>
-        <Scene key="Log" header={null} component={Log}/>
+        <Scene key="Log" header={null} component={Log} initial/>
         <Scene key="Registro" header={null} component={Registro}/>
         <Scene key="Mapa" header={null} component={Mapa} />
         <Scene key="News" header={null} component={News}/>
-        <Scene key="Perfil" header={null} component={Perfil} />
+        <Scene key="Perfil" header={null} component={Perfil}  />
         <Scene key="Recupera" header={null} component={Recupera} />
+        <Scene key="Info" header={null} component={Info} />
+        <Scene key="MapaV" header={null} component={MapaV} />
+        
 
       </Scene>
     </Router>

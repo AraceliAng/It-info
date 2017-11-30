@@ -44,7 +44,7 @@ componentWillMount(){
 
           <Text style={styles.text}>"Esto sera una leyenda"</Text>
           <Button rounded block style={styles.buttonIngreso} onPress={() => Actions.Login()}>
-            <Text style={styles.boton}>EMPECEMOS</Text>
+            <Text style={styles.TextoBoton}>EMPECEMOS</Text>
           </Button>
         </View>
       </View>
@@ -76,11 +76,6 @@ const styles = StyleSheet.create({
     marginTop: 200,
     color: 'white'
   },
-  img: {
-    width: 300,
-    height: 127,
-    top: -50
-  },
   buttonIngreso: {
     marginRight: 40,
     marginLeft: 40,
@@ -88,7 +83,7 @@ const styles = StyleSheet.create({
     top: 5,
     backgroundColor:'#2980b9'
   },
-  boton: {
+  TextoBoton: {
     color: 'white',
     fontWeight: 'bold'
   },

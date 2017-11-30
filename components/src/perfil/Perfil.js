@@ -6,11 +6,12 @@ import fondo from '../../assets/img/fondo1.jpeg';
 
 class Perfil extends Component {
 
+
   render() {
     return (
-      <Container>
 
-        <Content>
+
+        <View>
           <View style={styles.view}>
             <Image style={styles.img}
             source={fondo}/>
@@ -21,34 +22,34 @@ class Perfil extends Component {
               <Text>Info</Text>
             </ListItem>
 
-            <ListItem >
+            <ListItem last style={styles.tamaño} >
             <Left>
              <Text>Nombre</Text>
            </Left>
               <Input style={styles.texto} disabled placeholder='Dylan Torres'/>
             </ListItem>
 
-            <ListItem>
+            <ListItem last style={styles.tamaño}>
              <Left>
                 <Text>correo</Text>
              </Left>
               <Input style={styles.texto} disabled placeholder='dylan@prueba.com'/>
             </ListItem>
 
-            <ListItem>
+            <ListItem last style={styles.tamaño}>
              <Left>
                 <Text>No control</Text>
              </Left>
               <Input style={styles.texto} disabled placeholder='14200197'/>
             </ListItem>
 
-            <ListItem>
+            <ListItem last style={styles.tamaño}>
              <Left>
                 <Text>Carrera</Text>
              </Left>
               <Input style={styles.texto} disabled placeholder='Tics'/>
             </ListItem>
-            <ListItem>
+            <ListItem last style={styles.tamaño}>
              <Left>
                 <Text>Semestre</Text>
              </Left>
@@ -58,8 +59,7 @@ class Perfil extends Component {
           </List>
 
 
-        </Content>
-      </Container>
+        </View>
     );
   }
 }
@@ -76,6 +76,9 @@ const styles = StyleSheet.create({
   },
   texto:{
     textAlign:'right'
+  },
+  tamaño:{
+    height:47,
   }
 })
 

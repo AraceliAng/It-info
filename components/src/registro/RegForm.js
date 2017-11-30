@@ -10,6 +10,10 @@ export default class LoginForm extends Component{
     password: '',
     verifyPassword: '',
     error: '',
+    name:'',
+    numero:'',
+    carrera:'',
+    semestre:'',
     loading: false
   };
 
@@ -19,10 +23,10 @@ export default class LoginForm extends Component{
     this.onLoginFailed = this.onLoginFailed.bind(this);
   }
   onButtonPress() {
-  const {correo, password, verifyPassword} = this.state;
+  const {correo, password, verifyPassword, name, numero, carrera, semestre} = this.state;
   this.setState({error: '', loading: true});
 
-  if (password == verifyPassword && password != null && verifyPassword != null) {
+  if (password == verifyPassword && password != null && verifyPassword != null && correo != null && numero != null && carrea != null && semestre !=null && name != null ) {
     console.log(this.state.verifyPassword)
     console.log(this.state.password)
     console.log(this.state.correo)
@@ -52,10 +56,27 @@ export default class LoginForm extends Component{
             })
   }
 
-  onLoginSuccess() {
-    this.setState({correo: '', password: '', error: '', verifyPassword: '', loading: false});
-    Actions.Log();
-    Toast.show({text: 'Bienvenido', position: 'bottom', duration: 3000, type: 'success'})
+
+  onLoginSuccess(user) {
+      var uid = user.uid;
+      console.log(uid)
+    try{
+      firebase.database().ref('users/' + uid+"/Datos/").set({
+       name: this.state.name,
+       correo: this.state.correo,
+       numero: this.state.numero,
+       carrera: this.state.carrera,
+       semestre: this.state.semestre,
+     });
+
+      this.setState({correo: '', password: '', error: '', verifyPassword: '', loading: false});
+
+      Actions.Log();
+      Toast.show({text: 'Bienvenido', position: 'bottom', duration: 3000, type: 'success'})
+    }catch(error){
+      console.log(error)
+    }
+
   }
 
   spinnerInicio() {
@@ -112,6 +133,8 @@ buttonContra() {
              <Input
                 placeholder='Nombre'
                 style={styles.texto}
+                value={this.state.name}
+                onChangeText={name => this.setState({name})}
             />
            </Item>
            <Item rounded style={styles.input}>
@@ -127,18 +150,24 @@ buttonContra() {
              <Input
                 placeholder='Numero de control'
                 style={styles.texto}
+                value={this.state.numero}
+                onChangeText={numero => this.setState({numero})}
             />
            </Item>
            <Item rounded style={styles.input}>
              <Input
                 placeholder='Carrera'
                 style={styles.texto}
+                value={this.state.carrera}
+                onChangeText={carrera => this.setState({carrera})}
             />
            </Item>
            <Item rounded style={styles.input}>
              <Input
                 placeholder='Semestre'
                 style={styles.texto}
+                value={this.state.semestre}
+                onChangeText={semestre => this.setState({semestre})}
             />
            </Item>
            <Item rounded style={styles.input}>

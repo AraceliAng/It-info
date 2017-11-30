@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import {StyleSheet, StatusBar,TouchableOpacity} from 'react-native'
-import { Container, Header, Content, Footer, FooterTab, Button, Icon, Text, Body,Title,Right ,Toast} from 'native-base';
+import {StyleSheet, StatusBar,TouchableOpacity,View} from 'react-native'
+import { Container, Header, Content, Button, Icon, Text, Body,Title,Right,Left ,Toast} from 'native-base';
 import Perfil from './Perfil';
 import {Actions} from 'react-native-router-flux';
 import {firebaseAuth} from '../../firebase/Firebase';
+import FootBotones from '../barraNavegacion/FootBotones';
 
 export default class FooterTabsIconTextExample extends Component {
   constructor(props) {
@@ -14,60 +15,38 @@ export default class FooterTabsIconTextExample extends Component {
 salir() {
   firebaseAuth.signOut()
   .then(r=>Toast.show({text: 'Adios \(^_^)/', position: 'bottom', duration: 3000, type: 'success'}))
+  Actions.Bienvenida();
 }
 
   render() {
 
     return (
       <Container>
-        <Header style={styles.colorH}>
+        <Header>
+        <Left>
+        <Button transparent onPress={()=> Actions.pop()}>
+            <Icon name="arrow-back" />
+          </Button>
+        </Left>
         <Body>
-           <Title style={styles.texto}>Perfil</Title>
+           <Title >Perfil</Title>
          </Body>
          <Right>
-           <TouchableOpacity style={styles.touchMargin} onPress={this.salir.bind(this)}>
-            <Icon name='close' style={styles.icon3}/>
-           </TouchableOpacity>
+         <Button transparent  onPress={this.salir.bind(this)}>
+           <Icon name='close'/>
+         </Button>
          </Right>
         </Header>
         <StatusBar
           backgroundColor="black"
           barStyle="light-content"
         />
+
         <Perfil />
-        <Footer >
-          <FooterTab style={styles.colorH} >
-            <Button vertical onPress={() => Actions.News()}>
-              <Icon name="apps" style={styles.texto} />
-              <Text style={styles.texto}>News</Text>
-            </Button>
-            <Button vertical >
-              <Icon name="camera" style={styles.texto} />
-              <Text style={styles.texto}>QR</Text>
-            </Button>
-            <Button vertical onPress={() => Actions.Mapa()}>
-              <Icon active name="navigate" style={styles.texto} />
-              <Text style={styles.texto}>Map</Text>
-            </Button>
-            <Button vertical>
-              <Icon name="person" style={styles.texto} />
-              <Text style={styles.texto}>Perfil</Text>
-            </Button>
-          </FooterTab>
-        </Footer>
+
+
       </Container>
+
     );
   }
 }
-
-const styles = StyleSheet.create({
-  texto:{
-    color:'black'
-  },
-  colorH:{
-
-    backgroundColor: '#d0eceb'
-
-  },
-
-});

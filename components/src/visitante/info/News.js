@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Image, StyleSheet, StatusBar } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
-import Noti1 from '../../assets/img/Info.jpg'
-import Noti2 from '../../assets/img/info2.jpg'
+import Noti1 from '../../../assets/img/tec.jpeg'
+import Noti2 from '../../../assets/img/uni.jpg'
 export default class CardImageExample extends Component {
   render() {
     return (
@@ -13,8 +13,8 @@ export default class CardImageExample extends Component {
             <CardItem>
               <Left>
                 <Body>
-                  <Text>ENTREGA DE TARJETAS</Text>
-                  <Text note>A todos los estudaintes</Text>
+                  <Text>Estudia en el Tecde pachuca</Text>
+                  <Text note>El mejor nivel academico</Text>
                 </Body>
               </Left>
             </CardItem>
@@ -26,8 +26,8 @@ export default class CardImageExample extends Component {
             <CardItem>
               <Left>
                 <Body>
-                  <Text>Ven a Festejar con nosotros</Text>
-                  <Text note>festeja la navidad</Text>
+                  <Text>Oferta Educativa para ti</Text>
+                  <Text note>Las mejores ING</Text>
                 </Body>
               </Left>
             </CardItem>

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Image,Text, StatusBar, KeyboardAvoidingView} from 'react-native';
-import {Content, Header,Icon, Input,Item,Button} from 'native-base'
+import {Content} from 'native-base'
 import MapView from 'react-native-maps';
-
 
 const LATITUDEDELTA = 0.0922;
 const LONGITUDEDELTA = 0.0922;
@@ -396,16 +395,6 @@ export default class Mapa extends Component{
   render(){
     return(
       <View style={styles.container}>
-      <Header searchBar rounded>
-          <Item>
-            <Icon name="ios-search" />
-            <Input placeholder="Search" />
-            <Icon name="ios-people" />
-          </Item>
-          <Button transparent>
-            <Text>Search</Text>
-          </Button>
-      </Header>
         {this.state.region.latitude ?   <MapView
             style={styles.mapa}
             region={this.state.region}
@@ -413,7 +402,6 @@ export default class Mapa extends Component{
             showsUserLocation={true}
             followUserLocation={true}
           >
-
           {this.state.EDI.map(marker =>
              <MapView.Marker
                coordinate={{longitude: marker.lon, latitude: marker.lat}}
