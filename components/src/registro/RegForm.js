@@ -26,7 +26,7 @@ export default class LoginForm extends Component{
   const {correo, password, verifyPassword, name, numero, carrera, semestre} = this.state;
   this.setState({error: '', loading: true});
 
-  if (password == verifyPassword && password != null && verifyPassword != null && correo != null && numero != null && carrea != null && semestre !=null && name != null ) {
+  if (password == verifyPassword && password != null && verifyPassword != null && correo != null && numero != null && carrera != null && semestre !=null && name != null ) {
     console.log(this.state.verifyPassword)
     console.log(this.state.password)
     console.log(this.state.correo)

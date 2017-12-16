@@ -58,7 +58,7 @@ export default class LoginForm extends Component{
 
   handleChange = (field, value) => {
   const login = this.state.login;
-  login[field] = value;
+  login[field] = value;-m
   this.setState({login});
 };
 
@@ -69,7 +69,7 @@ export default class LoginForm extends Component{
 
            <Item rounded style={styles.input}>
              <Input
-                placeholder='Username'
+                placeholder='E-mail'
                 style={styles.texto}
                 name="correo"
                 keyboardType='email-address'

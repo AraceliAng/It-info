@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Image,Text, StatusBar, KeyboardAvoidingView} from 'react-native';
-import {Content, Header,Icon, Input,Item,Button} from 'native-base'
+import {Content, Header,Icon, Input,Item,Button,Body, Left,Right, Title} from 'native-base'
 import MapView from 'react-native-maps';
 
 
@@ -396,15 +396,16 @@ export default class Mapa extends Component{
   render(){
     return(
       <View style={styles.container}>
-      <Header searchBar rounded>
-          <Item>
-            <Icon name="ios-search" />
-            <Input placeholder="Search" />
-            <Icon name="ios-people" />
-          </Item>
-          <Button transparent>
-            <Text>Search</Text>
-          </Button>
+      <Header>
+      <Left>
+
+       </Left>
+       <Body>
+         <Title>No te Pierdas</Title>
+       </Body>
+       <Right>
+
+       </Right>
       </Header>
         {this.state.region.latitude ?   <MapView
             style={styles.mapa}
@@ -416,6 +417,7 @@ export default class Mapa extends Component{
 
           {this.state.EDI.map(marker =>
              <MapView.Marker
+             key={marker.id}
                coordinate={{longitude: marker.lon, latitude: marker.lat}}
                 title={marker.nombre}>
                <View style={styles.radius}><View style={styles.marker}/></View>
@@ -423,6 +425,7 @@ export default class Mapa extends Component{
            )}
            {this.state.DEP.map(marker =>
               <MapView.Marker
+              key={marker.id}
                 coordinate={{longitude: marker.lon, latitude: marker.lat}}
                  title={marker.nombre}
                  description={marker.descri}>
@@ -431,6 +434,7 @@ export default class Mapa extends Component{
             )}
             {this.state.LAB.map(marker =>
                <MapView.Marker
+                key={marker.id}
                  coordinate={{longitude: marker.lon, latitude: marker.lat}}
                   title={marker.nombre}
                   description={marker.descri}>
@@ -439,6 +443,7 @@ export default class Mapa extends Component{
              )}
              {this.state.ADE.map(marker =>
                 <MapView.Marker
+                key={marker.id}
                   coordinate={{longitude: marker.lon, latitude: marker.lat}}
                    title={marker.nombre}>
                   <View style={styles.radius}><View style={styles.markerADE}/></View>
@@ -446,6 +451,7 @@ export default class Mapa extends Component{
               )}
               {this.state.CED.map(marker =>
                  <MapView.Marker
+                  key={marker.id}
                    coordinate={{longitude: marker.lon, latitude: marker.lat}}
                     title={marker.nombre}>
                    <View style={styles.radius}><View style={styles.markerCED}/></View>
@@ -453,6 +459,7 @@ export default class Mapa extends Component{
                )}
                {this.state.GIM.map(marker =>
                   <MapView.Marker
+                    key={marker.id}
                     coordinate={{longitude: marker.lon, latitude: marker.lat}}
                      title={marker.nombre}>
                     <View style={styles.radius}><View style={styles.markerGIM}/></View>
@@ -460,6 +467,7 @@ export default class Mapa extends Component{
                 )}
                 {this.state.ACU.map(marker =>
                    <MapView.Marker
+                    key={marker.id}
                      coordinate={{longitude: marker.lon, latitude: marker.lat}}
                       title={marker.nombre}>
                      <View style={styles.radius}><View style={styles.markerACU}/></View>
@@ -467,6 +475,7 @@ export default class Mapa extends Component{
                  )}
                  {this.state.EST.map(marker =>
                     <MapView.Marker
+                      key={marker.id}
                       coordinate={{longitude: marker.lon, latitude: marker.lat}}
                        title={marker.nombre}
                        description={marker.descri}>

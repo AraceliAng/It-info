@@ -23,12 +23,12 @@ const Routes = () => {
         <Scene key="Log" header={null} component={Log} initial/>
         <Scene key="Registro" header={null} component={Registro}/>
         <Scene key="Mapa" header={null} component={Mapa} />
-        <Scene key="News" header={null} component={News}/>
+        <Scene key="News" header={null} component={News}  />
         <Scene key="Perfil" header={null} component={Perfil}  />
         <Scene key="Recupera" header={null} component={Recupera} />
         <Scene key="Info" header={null} component={Info} />
         <Scene key="MapaV" header={null} component={MapaV} />
-        
+
 
       </Scene>
     </Router>
